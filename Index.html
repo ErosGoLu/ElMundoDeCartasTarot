@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El mundo del Tarot | Oráculo de Arcanos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts para tipografías místicas -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Fondo Místico -->
+    <div class="mystic-bg"></div>
+
+    <!-- Widget de Música Espiritual (Reproductor de YouTube Oculto/Integrado) -->
+    <div class="audio-widget">
+        <button id="btn-audio" class="audio-btn" title="Activar música espiritual">
+            <span id="audio-icon">🔇</span> <span id="audio-text">Cuencos & Handpan</span>
+        </button>
+        <!-- Iframe de YouTube invisible que reproduce la música elegida en bucle -->
+        <div id="youtube-player-container" style="display:none;">
+            <iframe id="yt-player" width="200" height="100" src="https://www.youtube.com/embed/Ttaf1IYt6F4?enablejsapi=1&autoplay=0&loop=1&playlist=Ttaf1IYt6F4" frameborder="0" allow="autoplay"></iframe>
+        </div>
+    </div>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>El mundo del Tarot</h1>
+        <p>Conecta con tu destino a través de los Arcanos Mayores</p>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container">
+        
+        <!-- Formulario de Consulta -->
+        <section id="consult-section" class="card-box">
+            <h2>Consulta al Oráculo</h2>
+            <form id="tarot-form">
+                <div class="form-group">
+                    <label for="nombre">Tu Nombre:</label>
+                    <input type="text" id="nombre" required placeholder="Ej: Lucía">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha">Fecha de Nacimiento:</label>
+                    <input type="date" id="fecha" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="pregunta">Tu Pregunta:</label>
+                    <textarea id="pregunta" rows="3" required placeholder="Haz tu pregunta al universo..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-consultar">Consultar las Cartas</button>
+            </form>
+        </section>
+
+        <!-- Cartel de Concentración -->
+        <div id="modal-concentracion" class="modal hidden">
+            <div class="modal-content">
+                <div class="spinner-mystic"></div>
+                <p>✨ Concéntrate en tu pregunta y conecta con tu intuición... ✨</p>
+            </div>
+        </div>
+
+        <!-- Resultados de la Tirada -->
+        <section id="result-section" class="result-section hidden">
+            <div class="user-greeting">
+                <h3 id="saludo-usuario"></h3>
+                <p id="pregunta-usuario"></p>
+            </div>
+
+            <!-- Veredicto Sí / No -->
+            <div id="veredicto-box" class="veredicto-box">
+                <h4>Veredicto del Oráculo: <span id="respuesta-sino"></span></h4>
+            </div>
+
+            <!-- Las 3 Cartas -->
+            <h3 class="section-title">Tus 3 Arcanos Guía</h3>
+            <div class="cards-container" id="cards-container">
+                <!-- Se inyectan con JavaScript -->
+            </div>
+
+            <button id="btn-reiniciar" class="btn-consultar secondary">Hacer otra consulta</button>
+        </section>
+
+    </main>
+
+    <!-- Pie de Página -->
+    <footer>
+        <div class="footer-content">
+            <p>Seguinos en Instagram: <a href="https://instagram.com/mundo_decartas" target="_blank">@mundo_decartas</a></p>
+            <p class="motivational-message">"Recuerda que el futuro no está escrito en piedra; tus decisiones y tu energía tienen el poder de transformar cualquier camino. Eres más fuerte de lo que imaginas." 🌟</p>
+        </div>
+    </footer>
+
+    <!-- API de YouTube para control de audio por JavaScript -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>

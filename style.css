@@ -1,0 +1,400 @@
+:root {
+    --bg-deep: #09030e;
+    --bg-gradient: radial-gradient(circle at 50% 20%, #24113c 0%, #10061d 50%, #09030e 100%);
+    --card-bg: rgba(26, 13, 42, 0.7);
+    --card-front: linear-gradient(135deg, #2c164a, #150924);
+    --accent-gold: #f3cf55;
+    --accent-gold-hover: #fae17d;
+    --accent-purple: #9b51e0;
+    --text-color: #f3f0f7;
+    --text-muted: #c4b5d4;
+    --border-glow: rgba(155, 81, 224, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Cinzel', serif;
+}
+
+body {
+    background: var(--bg-deep);
+    background-image: var(--bg-gradient);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.mystic-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 0);
+    background-size: 40px 40px;
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Reproductor de Música */
+.audio-widget {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 100;
+}
+
+.audio-btn {
+    background: rgba(44, 22, 74, 0.8);
+    border: 1px solid var(--accent-purple);
+    color: var(--accent-gold);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 0 15px rgba(155, 81, 224, 0.2);
+    transition: all 0.3s ease;
+}
+
+.audio-btn:hover {
+    background: rgba(74, 34, 122, 0.9);
+    box-shadow: 0 0 20px rgba(243, 207, 85, 0.4);
+}
+
+header {
+    text-align: center;
+    padding: 3rem 1rem 1rem 1rem;
+}
+
+header h1 {
+    color: var(--accent-gold);
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(243, 207, 85, 0.3);
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    margin-top: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.container {
+    max-width: 950px;
+    width: 90%;
+    margin: 2rem auto;
+    flex: 1;
+}
+
+.card-box {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(155, 81, 224, 0.1);
+    border: 1px solid var(--border-glow);
+}
+
+.card-box h2 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border-radius: 8px;
+    border: 1px solid rgba(155, 81, 224, 0.3);
+    background-color: rgba(14, 6, 23, 0.8);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 12px rgba(243, 207, 85, 0.25);
+}
+
+.btn-consultar {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--accent-gold), #d4af37);
+    color: #12051d;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(243, 207, 85, 0.3);
+}
+
+.btn-consultar:hover {
+    background: linear-gradient(135deg, var(--accent-gold-hover), var(--accent-gold));
+    box-shadow: 0 6px 20px rgba(243, 207, 85, 0.5);
+    transform: translateY(-2px);
+}
+
+.btn-consultar.secondary {
+    background: transparent;
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    margin-top: 3rem;
+    box-shadow: none;
+}
+
+.btn-consultar.secondary:hover {
+    background: rgba(243, 207, 85, 0.1);
+    transform: translateY(-2px);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 3, 14, 0.9);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border-radius: 16px;
+    border: 2px solid var(--accent-gold);
+    text-align: center;
+    box-shadow: 0 0 40px rgba(155, 81, 224, 0.4);
+    max-width: 450px;
+    width: 90%;
+}
+
+.spinner-mystic {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(243, 207, 85, 0.2);
+    border-top: 3px solid var(--accent-gold);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem auto;
+    animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.modal-content p {
+    color: var(--accent-gold);
+    font-size: 1.3rem;
+    font-family: 'Cinzel', serif;
+}
+
+.result-section.hidden {
+    display: none;
+}
+
+.user-greeting {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.user-greeting h3 {
+    color: var(--accent-gold);
+    font-size: 1.8rem;
+}
+
+.user-greeting p {
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.4rem;
+    font-size: 1.1rem;
+}
+
+.veredicto-box {
+    text-align: center;
+    background: rgba(155, 81, 224, 0.12);
+    padding: 1.2rem;
+    border-radius: 10px;
+    border: 1px dashed var(--accent-purple);
+    margin-bottom: 2.5rem;
+    box-shadow: inset 0 0 15px rgba(155, 81, 224, 0.1);
+}
+
+.veredicto-box h4 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+#respuesta-sino {
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(243, 207, 85, 0.4);
+}
+
+.section-title {
+    text-align: center;
+    color: var(--accent-gold);
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+}
+
+.tarot-card {
+    width: 100%;
+    max-width: 280px;
+    height: 420px;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 12px;
+}
+
+.tarot-card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.card-front {
+    background: var(--card-front);
+    border: 2px solid var(--accent-purple);
+    color: var(--accent-gold);
+}
+
+.card-front span {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 10px rgba(243, 207, 85, 0.3));
+}
+
+.card-front p {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #1b0a2c, #0e031a);
+    border: 2px solid var(--accent-gold);
+    color: var(--text-color);
+    transform: rotateY(180deg);
+    text-align: left;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.card-back h5 {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    text-align: center;
+    width: 100%;
+    border-bottom: 1px solid rgba(243, 207, 85, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.card-back p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    background-color: #06020a;
+    border-top: 1px solid rgba(155, 81, 224, 0.2);
+    margin-top: 4rem;
+}
+
+.footer-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.motivational-message {
+    margin-top: 1.2rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    line-height: 1.5;
+}
