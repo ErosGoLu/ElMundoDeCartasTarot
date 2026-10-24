@@ -46,34 +46,6 @@ body {
     z-index: -1;
 }
 
-/* Reproductor de Música */
-.audio-widget {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 100;
-}
-
-.audio-btn {
-    background: rgba(44, 22, 74, 0.8);
-    border: 1px solid var(--accent-purple);
-    color: var(--accent-gold);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    box-shadow: 0 0 15px rgba(155, 81, 224, 0.2);
-    transition: all 0.3s ease;
-}
-
-.audio-btn:hover {
-    background: rgba(74, 34, 122, 0.9);
-    box-shadow: 0 0 20px rgba(243, 207, 85, 0.4);
-}
-
 header {
     text-align: center;
     padding: 3rem 1rem 1rem 1rem;

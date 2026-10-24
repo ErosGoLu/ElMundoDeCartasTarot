@@ -3,7 +3,7 @@ const arcanosMayores = [
     { nombre: "0. El Loco", generarTexto: (pregunta) => `Ante tu inquietud sobre "${pregunta}", El Loco te impulsa a dar un salto de fe. Es momento de dejar atrás los miedos y atreverte a iniciar un camino totalmente nuevo sin mirar atrás.` },
     { nombre: "I. El Mago", generarTexto: (pregunta) => `Para resolver "${pregunta}", cuentas con todas las herramientas necesarias. El Mago te recuerda que tienes el poder de manifestar tus intenciones si actúas con seguridad y enfoque.` },
     { nombre: "II. La Sacerdotisa", generarTexto: (pregunta) => `En relación a "${pregunta}", las respuestas no están afuera, sino en tu interior. La Sacerdotisa te pide que confíes en tu intuición y guardes tus energías en este momento de misterio.` },
-    { nombre: "III. La Emperatriz", generarTexto: (pregunta) => `Cuando consultas por "${pregunta}", La Emperatriz señala una etapa de gran fertilidad creativa y crecimiento. Es un llamado a conectar con la abundancia y a cuidar lo que estás construyendo.` },
+    { nombre: "III. La Emperatriz", generarTexto: (pregunta) => `Когда consultas por "${pregunta}" (o cuando preguntas por ello), La Emperatriz señala una etapa de gran fertilidad creativa y crecimiento. Es un llamado a conectar con la abundancia y a cuidar lo que estás construyendo.` },
     { nombre: "IV. El Emperador", generarTexto: (pregunta) => `Frente a "${pregunta}", este arcano exige orden, disciplina y estructura. El Emperador te aconseja tomar el control con firmeza y establecer bases sólidas para avanzar.` },
     { nombre: "V. El Hierofante", generarTexto: (pregunta) => `Sobre tu pregunta acerca de "${pregunta}", El Hierofante sugiere buscar consejo en la sabiduría tradicional o en tus valores más profundos para encontrar el equilibrio espiritual.` },
     { nombre: "VI. Los Enamorados", generarTexto: (pregunta) => `Tu dilema sobre "${pregunta}" te coloca ante una encrucijada importante. Los Enamorados te piden que elijas con el corazón y alinees tus decisiones con lo que realmente valoras.` },
@@ -34,54 +34,6 @@ const preguntaUsuario = document.getElementById('pregunta-usuario');
 const respuestaSino = document.getElementById('respuesta-sino');
 const btnReiniciar = document.getElementById('btn-reiniciar');
 
-// Control de reproductor de YouTube oficial sin publicidad
-let player;
-let reproduciendo = false;
-const btnAudio = document.getElementById('btn-audio');
-const audioIcon = document.getElementById('audio-icon');
-const audioText = document.getElementById('audio-text');
-
-// Esta función es llamada automáticamente por la API de YouTube al iniciar
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-        height: '0',
-        width: '0',
-        videoId: 'Ttaf1IYt6F4',
-        playerVars: {
-            'autoplay': 0,
-            'loop': 1,
-            'playlist': 'Ttaf1IYt6F4',
-            'controls': 0
-        },
-        events: {
-            'onReady': () => {
-                console.log("Audio de Handpan y Cuencos listo.");
-            }
-        }
-    });
-}
-
-btnAudio.addEventListener('click', () => {
-    if (!player || typeof player.playVideo !== 'function') {
-        alert("El reproductor se está conectando, espera un segundo y vuelve a hacer clic.");
-        return;
-    }
-
-    if (reproduciendo) {
-        player.pauseVideo();
-        audioIcon.textContent = '🔇';
-        audioText.textContent = 'Cuencos & Handpan';
-        btnAudio.style.borderColor = 'var(--accent-purple)';
-        reproduciendo = false;
-    } else {
-        player.playVideo();
-        audioIcon.textContent = '🎶';
-        audioText.textContent = 'Música Activa';
-        btnAudio.style.borderColor = 'var(--accent-gold)';
-        reproduciendo = true;
-    }
-});
-
 tarotForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
@@ -91,7 +43,7 @@ tarotForm.addEventListener('submit', function(e) {
     // 1. Mostrar cartel de concentración
     modalConcentracion.classList.remove('hidden');
 
-    // 2. Esperar 3 segundos
+    // 2. Esperar 3 segundos de suspenso
     setTimeout(() => {
         modalConcentracion.classList.add('hidden');
         consultSection.classList.add('hidden');
@@ -120,7 +72,6 @@ function mostrarResultados(nombre, pregunta) {
         const cardDiv = document.createElement('div');
         cardDiv.classList.add('tarot-card');
 
-        // Cada arcano ejecuta su propia función única de texto
         const textoInterpretacion = arcano.generarTexto(pregunta);
 
         cardDiv.innerHTML = `
