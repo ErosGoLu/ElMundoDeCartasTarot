@@ -34,19 +34,28 @@ const preguntaUsuario = document.getElementById('pregunta-usuario');
 const respuestaSino = document.getElementById('respuesta-sino');
 const btnReiniciar = document.getElementById('btn-reiniciar');
 
-// Control de reproductor de YouTube para la música espiritual
+// Control de reproductor de YouTube oficial sin publicidad
 let player;
 let reproduciendo = false;
 const btnAudio = document.getElementById('btn-audio');
 const audioIcon = document.getElementById('audio-icon');
 const audioText = document.getElementById('audio-text');
 
-// Esta función la llama automáticamente la API de YouTube al cargar
+// Esta función es llamada automáticamente por la API de YouTube al iniciar
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('yt-player', {
+        height: '0',
+        width: '0',
+        videoId: 'Ttaf1IYt6F4',
+        playerVars: {
+            'autoplay': 0,
+            'loop': 1,
+            'playlist': 'Ttaf1IYt6F4',
+            'controls': 0
+        },
         events: {
             'onReady': () => {
-                console.log("Reproductor de YouTube listo.");
+                console.log("Audio de Handpan y Cuencos listo.");
             }
         }
     });
@@ -54,7 +63,7 @@ function onYouTubeIframeAPIReady() {
 
 btnAudio.addEventListener('click', () => {
     if (!player || typeof player.playVideo !== 'function') {
-        alert("El reproductor de música está cargando, espera un segundo y vuelve a intentar.");
+        alert("El reproductor se está conectando, espera un segundo y vuelve a hacer clic.");
         return;
     }
 

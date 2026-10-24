@@ -13,14 +13,14 @@
     <!-- Fondo Místico -->
     <div class="mystic-bg"></div>
 
-    <!-- Widget de Música Espiritual (Reproductor de YouTube Oculto/Integrado) -->
+    <!-- Widget de Música Espiritual (Handpan & Cuencos sin publicidad) -->
     <div class="audio-widget">
         <button id="btn-audio" class="audio-btn" title="Activar música espiritual">
             <span id="audio-icon">🔇</span> <span id="audio-text">Cuencos & Handpan</span>
         </button>
-        <!-- Iframe de YouTube invisible que reproduce la música elegida en bucle -->
+        <!-- Contenedor oculto del reproductor de YouTube optimizado -->
         <div id="youtube-player-container" style="display:none;">
-            <iframe id="yt-player" width="200" height="100" src="https://www.youtube.com/embed/Ttaf1IYt6F4?enablejsapi=1&autoplay=0&loop=1&playlist=Ttaf1IYt6F4" frameborder="0" allow="autoplay"></iframe>
+            <div id="yt-player"></div>
         </div>
     </div>
 
@@ -95,7 +95,7 @@
         </div>
     </footer>
 
-    <!-- API de YouTube para control de audio por JavaScript -->
+    <!-- API de YouTube IFrame -->
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="script.js"></script>
 </body>
